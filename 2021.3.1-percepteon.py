@@ -1,7 +1,7 @@
 import numpy as np
 def percepteon(w,x,theta):
-    sum=np.dot(w,x.T)
-    if sum>theta:
+    sum=np.dot(w,x.T)-theta
+    if sum>0:
         return True
     else:
         return False
