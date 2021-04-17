@@ -1,12 +1,12 @@
-const int starWars[]={1,0,5,0,4,3,2,8,0,5,0,4,3,2,8,0,5,0,4,3,4,2,-1};
-const int twoTigers[]={1,2,3,1,1,2,3,1,3,4,5,0,3,4,5,0,5,6,5,4,3,0,1,0,5,6,5,4,3,0,1,0,2,1,1,0,2,1,1,-1};
+const int starWars[]={ 1,0,5,0,4,3,2,8,0,5,0,4,3,2,8,0,5,0,4,3,4,2,-1 };
+const int twoTigers[]={ 1,2,3,1,1,2,3,1,3,4,5,0,3,4,5,0,5,6,5,4,3,0,1,0,5,6,5,4,3,0,1,0,2,1,1,0,2,1,1,-1 };
 // const int starWars[]={ 1,5,4,3,2,8,5,4,3,2,8,5,0,4,3,4,2,-1 };
 //microsecond
 const int toneToPeriod[]={ 0,2272,2024,1803,1702,1516,1351,1203,1136 };
 void setup(){
 	pinMode(5,OUTPUT);
 	pinMode(4,OUTPUT);
-	Serial.begin(9600);
+	// Serial.begin(9600);
 }
 void show(int n){
 	for(int i=0;i<200;i++){
@@ -17,15 +17,13 @@ void show(int n){
 }
 void play(long time,int period){
 	if(period==0){
-		// show(4);
 		delay(time);
 		return;
 	}
-	// show(3);
 	digitalWrite(4,HIGH);
 	Serial.println(period);
 	for(long i=0;i<time*20;i++){
-		if(i%(period/30))
+		if(i%(period/35))
 			digitalWrite(5,LOW);
 		else
 			digitalWrite(5,HIGH);
@@ -33,7 +31,7 @@ void play(long time,int period){
 	digitalWrite(4,LOW);
 }
 void loop(){
-	for(int i=0;starWars[i]!=-1;i++){
+	for(int i=0;starWars[i]!=-1,analogRead(A0)<500;i++){
 		play(300,toneToPeriod[starWars[i]]);
 		delay(50);
 	}
