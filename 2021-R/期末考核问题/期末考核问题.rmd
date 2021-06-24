@@ -1,0 +1,191 @@
+---
+title: "期末考核问题"
+author: "JohnLu"
+output: html_document
+---
+
+今天是`r Sys.Date()`
+
+（把代码和结果粘贴下边，不要截图！！）
+
+#### 1.R语言 最早始于哪一年？
+
+1993
+
+#### 2.R语言为什么命名为R语言？
+
+最开始的两个开发者名首字母是R
+
+#### 3.R语言是基于什么语言开发的？
+
+S语言
+
+#### 4.R语言的两大基本功能是？
+
+统计计算，图形输出
+
+#### 5.Rstudio和R的关系是？
+
+Rstudio是R的IDE，辅助程序开发，调用R
+
+#### 6.以tidyverse包为例，列举R两种安装包的方式（截图语言描述都可以）？
+
+在Rstudio中使用Install Package/直接用install函数
+
+#### 7.R语言有哪些数据类型？
+
+逻辑，浮点，整数，字符，复数
+
+#### 8.R语言的数据结构类型有哪些？
+
+向量，矩阵，数据框
+
+#### 9.R中的向量是什么？
+
+同一种数据的有序集合
+
+#### 10.各列举三条R语言的优势和劣势
+
+优势：方便调库，语法为方便数学家使用(如下标从1开始)，方便绘图(样式多，美观)
+
+劣势：慢，中文支持不佳(编码问题)，开源导致代码质量参差不齐
+
+
+#### 11.实际操作–rivers是R自带的北美河流长度信息，请以rivrs为例，求出哪一个河流（序号）最长？
+
+```R
+which.max(rivers)
+```
+
+```{r ,echo=FALSE}
+which.max(rivers)
+```
+
+#### 12.实际操作–以mtcars为例，除am、cyl和vs之外求所有量的平均值
+
+```R
+colnames(mtcars)
+apply(mtcars[-c(2,8,9)],2,mean)
+```
+
+```{r ,echo=FALSE}
+colnames(mtcars)
+apply(mtcars[-c(2, 8, 9)], 2, mean)
+```
+
+#### 13.实际操作–以mtcars为例，分别用plot和ggplot函数绘mpg与disp关系的散点图
+
+```R
+plot(mtcars$mpg, mtcars$disp)
+```
+
+```{r ,echo=FALSE}
+plot(mtcars$mpg, mtcars$disp)
+```
+
+```R
+library(ggplot2)
+ggplot(mtcars,aes(mpg,disp))+geom_point()
+```
+
+```{r ,echo=FALSE}
+library(ggplot2)
+ggplot(mtcars,aes(mpg,disp))+geom_point()
+```
+
+#### 14.实际操作–随机生成100个均值为1，标准差为2的正态随数
+
+```R
+rnorm(100,1,2)
+```
+
+```{r ,echo=FALSE}
+rnorm(100,1,2)
+```
+
+#### 15.实际操作–利用ggplot并以mtcars数据集为例，演示如生成箱式图
+
+```R
+library(ggplot2)
+ggplot(mtcars,aes(as.factor(am),mpg))+geom_boxplot()
+```
+
+```{r ,echo=FALSE}
+library(ggplot2)
+ggplot(mtcars,aes(as.factor(am),mpg))+geom_boxplot()
+```
+
+#### 16.实际操作–利用for循环实现从1开始到100的累加运算
+
+```R
+s=0
+for(i in 1:100){
+	s <- s+i
+}
+s
+```
+
+```{r ,echo=FALSE}
+s=0
+for(i in 1:100){
+	s <- s+i
+}
+s
+```
+
+#### 17.实际操作–利用t检验检验mtcars中手动挡和自动挡的车mg是否有显著性差异
+
+```R
+t.test(mtcars$mpg~mtcars$am)
+```
+
+```{r ,echo=FALSE}
+t.test(mtcars$mpg~mtcars$am)
+```
+
+#### 18.实际操作–以diamonds数据为例，按照color和claity分类计算平均价格
+
+```r
+library(tidyverse)
+diamonds %>% group_by(color,clarity) %>% summarise(mean(price))
+```
+
+```{r ,echo=FALSE}
+library(tidyverse)
+diamonds %>% group_by(color,clarity) %>% summarise(mean(price))
+```
+
+#### 19.实际操作–利用R求下面矩阵行列式的值，并计算该矩阵逆$\begin{bmatrix}
+6&2\\
+2&5
+\end{bmatrix}$
+
+```r
+m <- matrix(c(6,2,2,5),2)
+det(m)
+solve(m)
+```
+
+```{r ,echo=FALSE}
+m <- matrix(c(6,2,2,5),2)
+det(m)
+solve(m)
+```
+
+#### 20.实际操作–利用R求下面矩阵的单位特征向量和特征根并验证两个特征值对应的特征向量是正交的$\begin{bmatrix}
+6&2\\
+2&5
+\end{bmatrix}$
+
+```R
+m <- matrix(c(6,2,2,5),2)
+eigen(m)
+a <- eigen(m)$vectors
+a[1, ] %*% a[2, ]
+```
+```{r ,echo=FALSE}
+m <- matrix(c(6,2,2,5),2)
+eigen(m)
+a <- eigen(m)$vectors
+a[1, ] %*% a[2, ]
+```
