@@ -1,0 +1,30 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\.py]
+@="SourceCode.py"
+
+[HKEY_CLASSES_ROOT\.md\ShellNew]
+"NullFile"=""
+
+[HKEY_CLASSES_ROOT\SourceCode.py]
+@="Python 源文件"
+
+
+[HKEY_CLASSES_ROOT\.c]
+@="SourceCode.c"
+
+[HKEY_CLASSES_ROOT\.c\ShellNew]
+"NullFile"=""
+
+[HKEY_CLASSES_ROOT\SourceCode.c]
+@="C 源文件"
+
+
+[HKEY_CLASSES_ROOT\.cpp]
+@="SourceCode.cpp"
+
+[HKEY_CLASSES_ROOT\.cpp\ShellNew]
+"NullFile"=""
+
+[HKEY_CLASSES_ROOT\SourceCode.c]
+@="C++ 源文件"
