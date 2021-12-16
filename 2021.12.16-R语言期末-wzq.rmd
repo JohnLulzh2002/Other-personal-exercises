@@ -1,0 +1,150 @@
+---
+title: "期末考核问题"
+author: "魏子淇"
+output: html_document
+---
+
+## 1.把mtcars数据集的第一列标题改为“mileage”
+
+```{R}
+a <- mtcars
+colnames(a)
+b <- colnames(a)
+b[1] <- "mileage"
+colnames(a) <- b
+colnames(a)
+```
+
+## 2.筛选mtcars的数据
+
+```{R}
+a <- mtcars
+b <- colnames(a)
+b[1] <- "mileage"
+colnames(a) <- b
+a <- subset(a, a$cyl > 4)
+a
+```
+
+## 3.按mileage升序排序
+
+```{R}
+a <- mtcars
+b <- colnames(a)
+b[1] <- "mileage"
+colnames(a) <- b
+a <- subset(a, a$cyl > 4)
+a <- a[order(a$mileage), ]
+a
+```
+
+## 4.按列求和
+
+```{R}
+a <- mtcars
+b <- colnames(a)
+b[1] <- "mileage"
+colnames(a) <- b
+a <- subset(a, a$cyl > 4)
+a <- a[order(a$mileage), ]
+colSums(a[colnames(a)], na.rm = TRUE)
+```
+
+## 5.2020年12月10日与1979年1月1日的时间差是几个星期
+
+```{R}
+a <- as.Date("2020-12-10")
+b <- as.Date("1979-01-01")
+difftime(as.POSIXct(a), as.POSIXct(b), units = "week")
+```
+
+## 6.对y=sin（2*x）进行求导并画图
+
+```{R}
+f <- formula(y ~ sin(2 * x))
+df <- deriv(f, "x", function.arg = TRUE)
+x <- seq(-pi, pi, 0.01)
+plot(x, df(x), type = "l", col = "blue", lty = 2)
+par(new = TRUE)
+plot(x, attr(df(x), "gradient"), type = "l", col = "red")
+```
+
+## 7.自定义的函数画圆
+
+```{R}
+f <- function(r) {
+    x <- seq(0, 2 * pi, 0.01)
+    plot(r * sin(x), r * cos(x), type = "l")
+}
+f(3)
+```
+
+## 8.把两个字符串连起来
+
+```{R}
+a <- "Hello"
+b <- "NUIST"
+s <- paste(a, b, sep = ", ")
+s
+```
+
+
+## 9.for语句输出10次“Hello，NUIST”
+
+```{R}
+a <- "Hello"
+b <- "NUIST"
+s <- paste(a, b, sep = ", ")
+for (i in 1:10) {
+    print(s)
+}
+
+```
+
+## 10.ggplot绘制iris中Sepal.Length和Sepal.Width的散点图
+
+```{R}
+library(ggplot2)
+ggplot(iris, mapping = aes(x = Sepal.Length, y = Sepal.Width)) +
+    geom_point()
+```
+
+## 11.最大似然法估计
+
+```{R}
+set.seed(111)
+x.vector <- rnorm(1000, mean = 2, sd = 2)
+f <- function(theta, x) {
+    mu <- theta[1]
+    sigma2 <- theta[2]
+    n <- length(x)
+    logL <- -0.5 * n * log(2 * pi) - 0.5 * n * log(sigma2) - (1 / (2 * sigma2)) * sum((x - mu)**2)
+    return(-logL)
+}
+result <- optim(c(0, 1), f, x = x.vector)
+mu <- result$par[1]
+sigma2 <- result$par[2]
+paste("mu=", mu)
+paste("sigma=", sqrt(sigma2))
+```
+
+## 12.ANOVA
+
+```{R}
+a <- aov(weight ~ group, data = PlantGrowth)
+summary(a)
+```
+
+是显著的.
+
+```{R}
+TukeyHSD(a)
+plot(TukeyHSD(a))
+```
+
+## 13.积分
+
+```{R}
+f <- function(x) exp(-x^2/2)/sqrt(2 * pi)
+integrate(f, -1.96, 1.96)
+```
