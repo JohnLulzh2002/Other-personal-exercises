@@ -1,0 +1,21 @@
+data:
+mu=3.986e14;
+rp=6371393;
+ig=2432.88;
+mt=57700;
+m1=35000;
+oe=0.004167;
+mr=0.88;
+mp=000;
+end data
+dv1=@SQRT(2*mu*(1/rp-1/(ra+rp)))-oe*rp;
+dv2=@SQRT(mu/ra)-@SQRT(2*mu*(1/ra-1/(ra+rp)));
+v1=ig*@LOG((mt+mp)/(mt+mp-m1));
+v2=ig*@LOG((mt+mp-m1-md)/(mt+mp-m1-m2-md));
+v3=ig*@LOG((mt+mp-m1-m2-2*md)/(mt+mp-m1-m2-m3-2*md));
+v4=ig*@LOG((mt+mp-m1-m2-m3-3*md)/(mt+mp-m1-m2-m3-m4-3*md));
+md=(1-mr)/mr*m1;
+m1+m2+m3+m4+4*md<mt;
+dv1=v1+v2+v3;
+dv2=v4;
+max=ra;
