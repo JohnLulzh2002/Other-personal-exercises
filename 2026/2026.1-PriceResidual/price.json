@@ -1,0 +1,142 @@
+[
+	{
+		"meat": 0,
+		"veg": 2,
+		"price": 8
+	},
+	{
+		"meat": 0,
+		"veg": 3,
+		"price": 10
+	},
+	{
+		"meat": 0,
+		"veg": 4,
+		"price": 13
+	},
+	{
+		"meat": 0,
+		"veg": 5,
+		"price": 15
+	},
+	{
+		"meat": 1,
+		"veg": 0,
+		"price": 8
+	},
+	{
+		"meat": 1,
+		"veg": 1,
+		"price": 9
+	},
+	{
+		"meat": 1,
+		"veg": 2,
+		"price": 11
+	},
+	{
+		"meat": 1,
+		"veg": 3,
+		"price": 14
+	},
+	{
+		"meat": 1,
+		"veg": 4,
+		"price": 16
+	},
+	{
+		"meat": 1,
+		"veg": 5,
+		"price": 17
+	},
+	{
+		"meat": 2,
+		"veg": 0,
+		"price": 10
+	},
+	{
+		"meat": 2,
+		"veg": 1,
+		"price": 12
+	},
+	{
+		"meat": 2,
+		"veg": 2,
+		"price": 15
+	},
+	{
+		"meat": 2,
+		"veg": 3,
+		"price": 16
+	},
+	{
+		"meat": 2,
+		"veg": 4,
+		"price": 17
+	},
+	{
+		"meat": 2,
+		"veg": 5,
+		"price": 18
+	},
+	{
+		"meat": 3,
+		"veg": 0,
+		"price": 13
+	},
+	{
+		"meat": 3,
+		"veg": 1,
+		"price": 16
+	},
+	{
+		"meat": 3,
+		"veg": 2,
+		"price": 18
+	},
+	{
+		"meat": 3,
+		"veg": 3,
+		"price": 20
+	},
+	{
+		"meat": 3,
+		"veg": 4,
+		"price": 21
+	},
+	{
+		"meat": 3,
+		"veg": 5,
+		"price": 22
+	},
+	{
+		"meat": 4,
+		"veg": 0,
+		"price": 15
+	},
+	{
+		"meat": 4,
+		"veg": 1,
+		"price": 17
+	},
+	{
+		"meat": 4,
+		"veg": 2,
+		"price": 19
+	},
+	{
+		"meat": 4,
+		"veg": 3,
+		"price": 21
+	},
+	{
+		"meat": 4,
+		"veg": 4,
+		"price": 23
+	},
+	{
+		"meat": 4,
+		"veg": 5,
+		"price": 25
+	}
+]
